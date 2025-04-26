@@ -2,7 +2,7 @@ import DetailMovie from "../series/DetailMovie";
 import EpisodeList from "../series/EpisodeList";
 import { FC } from "react";
 import RekomendasiSerupa from "../film/RekomendasiSerupa";
-import BannerPopUpDetail from "./BannerPopUpDetail";
+import BannerPopUpDetail from "./BannerPopupDetail";
 
 type Props = {
   isPremium: boolean;
