@@ -1,7 +1,6 @@
 import GroupedFilmList from "@/components/common/GroupedFilmList";
 import Banner from "../components/common/Banner";
 import { ListDataPerPage } from "@/types/allTypes";
-import { useSelector } from "react-redux";
 
 
 const ListDataHomePage: ListDataPerPage[] = [

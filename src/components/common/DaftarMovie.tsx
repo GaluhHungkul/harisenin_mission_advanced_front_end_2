@@ -33,7 +33,7 @@ const DaftarMovie = ({ length=50, disabled=false } : { length? : number, disable
         {loadingCard ?
           <div className="grid grid-cols-3   gap-4 lg:gap-8 lg:grid-cols-6  ">
             {Array(6).fill(0).map((_, index) => (
-              <Skeleton className="h-[125px] w-[250px] lg:w-50 lg:h-75 rounded-xl" key={index}/>
+              <Skeleton className="h-[125px] w-[110px] lg:w-50 lg:h-75 rounded-xl" key={index}/>
             ))}
           </div>
         :

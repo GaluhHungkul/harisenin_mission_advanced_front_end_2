@@ -1,6 +1,7 @@
 import { addToMyMovieList } from "@/services/api/tmdb"
-import { faPlus, faVolumeHigh, faVolumeXmark } from "@fortawesome/free-solid-svg-icons"
+import { faPlus, faVolumeHigh, faVolumeXmark, faX } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon,    } from "@fortawesome/react-fontawesome"
+import { DialogClose } from "@radix-ui/react-dialog"
 import { FC, useState } from "react"
 import { Link } from "react-router-dom"
 
@@ -20,7 +21,10 @@ const BannerPopUpDetail : FC<Props> = ({img_banner,  title, isPremium, img_poste
     const [loading, setLoading] = useState<boolean>(false)    
 
   return (
-    <div className="w-full h-[190px] pt-10 lg:h-[500px] relative p-4 lg:px-16 bg-cover bg-center bg-no-repeat   " style={{ backgroundImage: `url(${img_banner})` }}>
+    <div className="w-full h-[190px] pt-10 lg:h-[500px] relative p-4 lg:px-16 bg-cover bg-center bg-no-repeat rounded-tr rounded-tl" style={{ backgroundImage: `url(${img_banner})` }}>
+        <DialogClose className="absolute top-2 right-2 cursor-pointer lg:text-2xl" asChild >
+            <button className="px-2"><FontAwesomeIcon icon={faX}/></button>
+        </DialogClose>
         <div className="w-full  h-max top-10 relative  mt-10 text-white flex flex-col lg:top-60  gap-3 lg:w-full lg:h-max  lg:gap-3  lg:mx-auto">
             {title && <p className="font-bold text-[14px] lg:text-[32px] 
             ">{title}</p>}
