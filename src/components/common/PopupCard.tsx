@@ -8,8 +8,6 @@ const PopupCard = () => {
 
   const film = useSelector((state:RootState) => state.selectedFilm.value)
 
- 
-
   const location = useLocation()
 
 

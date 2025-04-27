@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 
 import { useDispatch } from "react-redux";
 import { setSelectedFilm } from "@/store/slices/selectedFilmSlice";
@@ -7,7 +7,6 @@ import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/css";
 import { Navigation, Autoplay } from "swiper/modules"
 
-import { Dialog } from "../ui/dialog";
 import { Skeleton } from "../ui/skeleton";
 
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -16,7 +15,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FilmtmbdApi } from "@/types/allTypes";
 import Card from "../common/Card";
 import ModalHoverFilm from "../common/ModalHoverFilm";
-import PopupCard from "./PopupCard";
 
 type Props = {
   title: string;
@@ -31,14 +29,6 @@ const FilmList: FC<Props> = ({ title, data, isVertical, index, loadingCard }) =>
   const dispatch = useDispatch()
 
 
-  const [showPopup, setShowPopup] = useState<boolean>(false)
-
-
-
-  const handleOpenFilm = (film) => {
-    dispatch(setSelectedFilm(film))
-    setShowPopup(true)
-  }
 
   return (
     <div className="py-5 lg:py-10 w-full lg:px-16 lg:w-[95vw] overflow-visible">
@@ -68,7 +58,7 @@ const FilmList: FC<Props> = ({ title, data, isVertical, index, loadingCard }) =>
        {!loadingCard ?
         <>
           {data.map((film) => (
-            <SwiperSlide onClick={() => handleOpenFilm(film)} key={film.id} className={`${isVertical && "!w-max"} lg:!w-max group hover:!z-10  !overflow-visible !static !transform-none `}>
+            <SwiperSlide onClick={() => dispatch(setSelectedFilm(film))} key={film.id} className={`${isVertical && "!w-max"} lg:!w-max group hover:!z-10  !overflow-visible !static !transform-none `}>
               <Card img={isVertical ? film.poster_path : (film.backdrop_path)} isVertical={isVertical} title={film.title} rating={film.vote_average}>
                 <ModalHoverFilm
                   img={film.backdrop_path}
@@ -93,13 +83,7 @@ const FilmList: FC<Props> = ({ title, data, isVertical, index, loadingCard }) =>
           <FontAwesomeIcon icon={faArrowRight} />
         </button>
       </Swiper>
-      {showPopup && (
-        <div className="fixed right-1/2 translate-x-1/2 top-10 z-[999] lg:top-3 rounded ">
-          <Dialog open={showPopup} onOpenChange={setShowPopup} >
-            <PopupCard />
-          </Dialog>
-        </div>
-      )}
+     
     </div>
   );
 };

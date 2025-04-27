@@ -61,6 +61,8 @@ const dataRekomendasiSerupa = ["/assets/img/home/3/card/card1.png","/assets/img/
 
 const PopupDetail: FC<Props> = ({ isPremium, isSeriesPage, img_banner, title, overview, img_poster, vote_average }) => {
 
+  
+
   return (
     <div className="pb-4">
       <BannerPopUpDetail
