@@ -25,6 +25,8 @@ const SelectGenre = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [selected, setSelected] = useState<string>("Genre")
 
+  
+
   const navigate = useNavigate()
 
   return (

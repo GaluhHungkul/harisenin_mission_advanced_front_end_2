@@ -12,7 +12,7 @@ const PopupCard = () => {
 
 
   return (
-    <DialogContent className="w-80  min-h-[620px] bg-primary p-0 border-none  flex flex-col border lg:w-[933px] lg:max-w-screen overflow-x-hidden lg:max-h-[90vh] overflow-y-auto  lg:min-h-[680px]  ">
+    <DialogContent className="w-80  min-h-[620px] bg-primary p-0   flex flex-col  lg:w-[933px] lg:max-w-screen overflow-x-hidden lg:max-h-[90vh] overflow-y-auto  lg:min-h-[680px] border-none rounded ">
         <DialogTitle className="sr-only">Detail Movie</DialogTitle>                
         <PopupDetail vote_average={film.vote_average} overview={film.overview} img_banner={film.backdrop_path} img_poster={film.poster_path} title={film.title} isPremium={Math.ceil(Math.random() * 10) % 2 === 0} isSeriesPage={location.pathname === "/series"} />
     </DialogContent>

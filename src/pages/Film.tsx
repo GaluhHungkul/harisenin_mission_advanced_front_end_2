@@ -38,7 +38,7 @@ const Film = () => {
   return (
     <>
       <Banner selectGenre/>
-      <GroupedFilmList data={ListDataFilmPage}/>  
+      <GroupedFilmList data={ListDataFilmPage} page="film"/>  
       {showPopup && <div className="fixed right-1/2 translate-x-1/2 top-10 z-[999] lg:top-3 rounded ">
         <Dialog open={showPopup} onOpenChange={(isOpen) => !isOpen && dispatch(clearSelectedFilm())}>
           <PopupCard />

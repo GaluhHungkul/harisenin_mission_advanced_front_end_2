@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import  selectedFilmReducer  from './slices/selectedFilmSlice';
+import dataFilmReducer from './slices/dataFilmSlice';
 
 export const store = configureStore({
     reducer : {
-        selectedFilm : selectedFilmReducer 
+        selectedFilm : selectedFilmReducer,
+        dataFilm : dataFilmReducer
     }
 })
 

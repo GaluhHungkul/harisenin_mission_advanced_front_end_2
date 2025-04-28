@@ -1,6 +1,7 @@
 import { FilmtmbdApi } from "@/types/allTypes";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+
 interface SelectedFilmState {
     value : FilmtmbdApi | null;
     showPopup : boolean;

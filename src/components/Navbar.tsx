@@ -84,7 +84,9 @@ const Navbar = () => {
         {showProfile &&
             <div className={`absolute text-white  p-5 right-3 top-12 rounded  w-max gap-2 flex flex-col bg-primary text-[10px] lg:text-[18px] lg:right-4 lg:top-20`}>
                 {profileNavigate.map((item, index) => (
-                    <Link to={item.href} key={index} className="flex items-center hover:text-blue-500">
+                    <Link to={item.href} onClick={() => {
+                        if(item.href === "/login") localStorage.removeItem("userId")
+                    }} key={index} className="flex items-center hover:text-blue-500">
                         <FontAwesomeIcon icon={item.icon} />
                         <span className="ml-2">{item.name}</span>
                     </Link>  

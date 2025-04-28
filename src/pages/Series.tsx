@@ -40,8 +40,8 @@ const Series = () => {
   return (
     <>
       <Banner selectGenre/>
-      <GroupedFilmList data={ListDataSeriesPage}/>
-      {showPopup && <div className="fixed right-1/2 translate-x-1/2 top-10 z-[999] lg:top-3 rounded ">
+      <GroupedFilmList data={ListDataSeriesPage} page="series"/>
+      {showPopup && <div className="fixed right-1/2 translate-x-1/2 top-5 z-[999] lg:top-3 rounded ">
         <Dialog open={showPopup} onOpenChange={(isOpen) => {
           if(!isOpen) dispatch(clearSelectedFilm())
         }}>
