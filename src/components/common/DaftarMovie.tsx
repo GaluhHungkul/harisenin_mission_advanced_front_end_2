@@ -53,7 +53,7 @@ const DaftarMovie = ({ length=50, disabled=false } : { length? : number, disable
                     <p className="line-clamp-1 lg:line-clamp-2 ">{film.title}</p>
                     <p className="absolute bottom-2 right-4"><span className="text-yellow-500">{film.vote_average}</span> / 10</p>
                   </div>
-                  <img src={film.img} className="object-center object-cover size-full  hover:scale-110   duration-300" alt={film.title} />
+                  <img src={film.img} className="object-center object-cover size-full  group-hover:scale-110   duration-300" alt={film.title} />
                 </section>
                 ))}
               </div>

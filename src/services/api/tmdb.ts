@@ -89,7 +89,7 @@ export const addToMyMovieList = async ({title, img, vote_average} : { title : st
 
     try {
         const id = getId()
-
+      
         const user = await getMyProfile()
         if(!user) throw new Error("Gagal mengambil data user")
         const isExist = user.listMovie.some((film) => film.title === title)
@@ -128,7 +128,7 @@ export const deleteFromMyMovieList = async (id:string) => {
   const loadingToast = toast.loading("menghapus movie...")
       
   try {
-
+    const userId = getId()
     const user = await getMyProfile()
     if(!user) throw new Error("Gagal mengambil data user")
     const isExist = user.listMovie.some((film) => film.id === id)
@@ -138,7 +138,7 @@ export const deleteFromMyMovieList = async (id:string) => {
       return
     }
     const newMovie = user.listMovie.filter((film) => film.id !== id)
-    const res = await fetch(`${import.meta.env.VITE_BASE_URL_MOCKAPI_MYMOVIELIST}/${id}`, {
+    const res = await fetch(`${import.meta.env.VITE_BASE_URL_MOCKAPI_USERS}/${userId}`, {
       method : "PUT",
       headers: {
         "Content-Type": "application/json"
